@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+    <span class="fill-remaining-space">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item routerLink="/homepage">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </button>
+        <button mat-menu-item routerLink="/characters">
+          <mat-icon>people_outline</mat-icon>
+          <span>characters</span>
+        </button>
+        <button mat-menu-item routerLink="/quiz">
+          <mat-icon>videocam</mat-icon>
+          <span>quiz</span>
+         
+        </button>
+       
+      </mat-menu>
+    </span>
+    <span class="fill-remaining-space">THE SHOW</span>
+  </mat-toolbar>
+<router-outlet></router-outlet>

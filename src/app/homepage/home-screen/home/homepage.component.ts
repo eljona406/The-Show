@@ -10,6 +10,7 @@ import { ShowInfoService } from 'src/app/services/show-info.service';
 export class HomepageComponent implements OnInit {
 
   info!: Info[];
+  infoData!: Info;
 
   constructor(private showInfoService : ShowInfoService) { }
 
@@ -19,9 +20,14 @@ export class HomepageComponent implements OnInit {
   }
 getInfo(){
   this.showInfoService.showInfo().subscribe(data =>{
-    console.log(data)
+   
     this.info = data
+    this.infoData= this.info[0]
     console.log(this.info)
+    console.log(this.infoData)
+
+    //fix console error 
+    // add style and structure
   })
 }
 }

@@ -8,7 +8,7 @@ export interface Characters{
     species :string;
     homePlanet :string;
     occupation :string;
-    sayings :string;//ARRAYY
+    sayings : any [];
     id :number;
     age :string;
 }

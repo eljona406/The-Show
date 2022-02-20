@@ -1,6 +1,6 @@
 export interface Quiz{
     id: any;
     question: string;
-    possibleAnswers: string;
+    possibleAnswers: [];
     correctAnswer: string;
 }

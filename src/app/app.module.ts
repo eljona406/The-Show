@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from "@angular/material/select";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MaterialModule } from './homepage/material.module';
+import { ChangeBackgroundDirective } from './change-background.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MaterialModule } from './homepage/material.module';
     HomepageComponent,
     QuizComponent,
     CharactersComponent,
-    NavigatioComponent
+    NavigatioComponent,
+    ChangeBackgroundDirective
   ],
   imports: [
     BrowserModule,
@@ -29,12 +31,8 @@ import { MaterialModule } from './homepage/material.module';
     MatSidenavModule,
     MaterialModule,
     HttpClientModule,
-
   ],
-  providers: [
-   // AngularFuturamaDatabase,
-  
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

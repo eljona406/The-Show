@@ -3,10 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CharacterDetailComponent } from './homepage/characters-screen/character-detail/character-detail/character-detail.component';
 import { CharactersComponent } from './homepage/characters-screen/characters/characters.component';
 import { HomepageComponent } from './homepage/home-screen/home/homepage.component';
-import { NavigatioComponent } from './homepage/navigation/navigation/navigation.component';
 import { QuizComponent } from './homepage/quiz-screen/quiz/quiz.component';
-
-//const routes: Routes = [];
 
 const routes: Routes = [
   {
@@ -35,7 +32,6 @@ const routes: Routes = [
     redirectTo: 'welcome'
   },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -28,4 +28,7 @@ export class CharactersComponent implements OnInit {
   seeDetails(id: number){
     this.router.navigate(['characters',id]);
   }
+  /*
+  improve display   at least 3 in a row  and work with css
+  */
 }

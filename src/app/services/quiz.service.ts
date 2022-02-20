@@ -10,7 +10,7 @@ export class QuizService {
 
   constructor( private http : HttpClient) {}
 
-     public getQuiz(): Observable<Quiz[]> {
+     public getQuiz():Observable<Quiz[]> {
        return this.http.get<Quiz[]>('https://api.sampleapis.com/futurama/questions')
      }
 }

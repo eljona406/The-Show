@@ -1,1 +1,15 @@
-<p>character-detail works!</p>
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{characterDetails?.name?.first}} {{characterDetails?.name?.middle}} {{characterDetails?.name?.last}}</mat-card-title>
+      <mat-card-subtitle>Gender : {{characterDetails?.gender}}</mat-card-subtitle>
+      <mat-card-subtitle>Species : {{characterDetails?.species}}</mat-card-subtitle>
+      <mat-card-subtitle>Home Planet : {{characterDetails?.homePlanet}}</mat-card-subtitle>
+      <mat-card-subtitle>Ocupation : {{characterDetails?.occupation}}</mat-card-subtitle>
+    </mat-card-header>
+    {{characterDetails?.sayings}} 
+    <img mat-card-image src="{{characterDetails?.images?.main}}" alt="Photo of a Shiba Inu" width="100">
+    <mat-card-actions>
+
+    </mat-card-actions>
+  </mat-card>

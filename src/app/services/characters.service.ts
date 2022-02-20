@@ -13,4 +13,8 @@ export class CharactersService {
      public showCharacters(): Observable<Characters[]> {
        return this.http.get<Characters[]>('https://api.sampleapis.com/futurama/characters')
      }
+     
+     public getCharactersById(id :number ): Observable<Characters> {
+      return this.http.get<Characters>('https://api.sampleapis.com/futurama/characters'+`/${id}`)
+    }
 }

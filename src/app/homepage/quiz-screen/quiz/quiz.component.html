@@ -1,3 +1,57 @@
-<p>quiz works!</p>
+<div class="container">
+  <mat-card class="card">
+     <mat-card-title class="quiz-header">
+        <h4 style="font-family: cursive;">The Show Quiz</h4>
+        <span style="font-style: italic;">Welcome User </span>
+     </mat-card-title>
 
+     <ng-container *ngIf="!isQuizCompleted">
+
+        <mat-card-subtitle class="d-flex justify-content-around py-2">
+           <div class="score">
+              <h4>{{points}} Points</h4>
+           </div>
+           <div class="question-remain">
+              <span style="font-style: italic;">Question {{currentQuestion+1}} of {{questionList.length}}</span>
+           </div>
+        </mat-card-subtitle>
+
+        <!-- <div class="progress mb-3">
+           <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [ngStyle]="{'width': progress +'%'}"  aria-valuemin="0" aria-valuemax="100"></div>
+           </div> -->
+        <mat-card-subtitle class="question">
+           <h3>{{questionList[currentQuestion]?.question}}</h3>
+           <mat-divider></mat-divider>
+        </mat-card-subtitle>
+
+        <mat-card-content>
+           <mat-list *ngFor="let possibleAnswers of questionList[currentQuestion]?.possibleAnswers">
+              <mat-list-item (click)="answer(currentQuestion+1,possibleAnswers)" appChangeBackground [isCorrect]="possibleAnswers === questionList[currentQuestion].correctAnswer">
+              {{possibleAnswers}}
+              <mat-divider></mat-divider>
+              </mat-list-item>
+           </mat-list>
+        </mat-card-content>
+
+        <mat-card-actions class="d-flex justify-content-between">
+           <!-- <button [disabled]="currentQuestion === 0" class="btn" (click)="previousQuestion()"><i class="fa text-primary fa-chevron-left fa-3x"aria-hidden="true"></i></button> -->
+           <!-- <button class="btn" (click)="resetQuiz()"><i class="fa fa-refresh text-primary fa-3x" aria-hidden="true"></i></button> -->
+           <button mat-raised-button color="primary" [disabled]="currentQuestion === questionList.length-1" class="btn" (click)="nextQuestion()">Final Answer</button>
+        </mat-card-actions>
+     </ng-container>
+
+     <ng-container *ngIf="isQuizCompleted">
+        <div class="row d-flex justify-content-between">
+           <mat-card-content class="result text-center col md-6 col-sm-12">
+              <h3>Congratulations <br>You have completed the quiz. <br>Below is your result:</h3>
+              <p>Total Question Attemppted : {{questionList.length}}</p>
+              <p>Total Correct Answer : {{correctAnswer}}</p>
+              <p>Total Wrong Answer : {{incorrectAnswer}}</p>
+              <p>Your Score : {{points}} Points</p>
+           </mat-card-content>
+           <button mat-raised-button color="primary" class="btn" (click)="resetQuiz()"><mat-icon class="fa fa-refresh text-primary fa-3x" aria-hidden="true"></mat-icon></button>
+        </div>
+     </ng-container>
+  </mat-card>
+</div>
 <router-outlet></router-outlet>

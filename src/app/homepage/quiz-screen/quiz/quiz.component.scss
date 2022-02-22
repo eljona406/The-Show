@@ -4,10 +4,25 @@
   padding: 10px;
   .quiz-header{
     background-image: url('/assets/images/quiz-start.jpg');
-   // width: 100%  !important;
     height: 300px;
     background-repeat:no-repeat;
-  
+    background-size: contain;
+  .welcome{
+    font-size: 900;
+    background-color: rgb(17, 48, 224);
+    font-style: italic;
+    color: white;
+    font-weight: bold;
+  }
+  .question-remain{
+    font-style: italic;
+  }
+}
+.question-remain{
+  font-style: italic;
+}
+.score{
+  font-style: italic;
 }
 .option{
   width: 100%;

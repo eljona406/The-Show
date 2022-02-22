@@ -3,14 +3,14 @@
    
   <ng-container *ngIf="!isQuizCompleted">
    <mat-card-title class="quiz-header">
-        <h1 style="font-style: italic;">Welcome to Futurama Quiz</h1>
+        <h1 class="welcome">Welcome to Futurama Quiz</h1>
      </mat-card-title>
         <mat-card-subtitle class="d-flex justify-content-around py-2">
            <div class="score">
-              <h4>{{points}} Points</h4>
+              <span>{{points}} Points</span>
            </div>
            <div class="question-remain">
-              <span style="font-style: italic;">Question {{currentQuestion+1}} of {{questionList.length}}</span>
+              <span>Question {{currentQuestion+1}} of {{questionList.length}}</span>
            </div>
         </mat-card-subtitle>
 
@@ -24,17 +24,17 @@
 
         <mat-card-content>
            <mat-list *ngFor="let possibleAnswers of questionList[currentQuestion]?.possibleAnswers">
-              <mat-list-item (click)="answer(currentQuestion+1,possibleAnswers)" appChangeBackground [isCorrect]="possibleAnswers === questionList[currentQuestion].correctAnswer">
+              <mat-list-item  (click)="answer(currentQuestion+1,possibleAnswers)" appChangeBackground [isCorrect]="possibleAnswers === questionList[currentQuestion].correctAnswer">
               {{possibleAnswers}}
               <mat-divider></mat-divider>
               </mat-list-item>
            </mat-list>
         </mat-card-content>
 
-        <mat-card-actions class="d-flex justify-content-center">
+        <mat-card-actions class="d-flex justify-content-end">
            <!-- <button [disabled]="currentQuestion === 0" class="btn" (click)="previousQuestion()"><i class="fa text-primary fa-chevron-left fa-3x"aria-hidden="true"></i></button> -->
            <!-- <button class="btn" (click)="resetQuiz()"><i class="fa fa-refresh text-primary fa-3x" aria-hidden="true"></i></button> -->
-           <button mat-raised-button color="primary" [disabled]="currentQuestion === questionList.length-1" class="btn" (click)="nextQuestion()">Final Answer</button>
+           <button  class="btn" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-3x"aria-hidden="true"></i></button>
         </mat-card-actions>
      </ng-container>
 

@@ -33,31 +33,27 @@ export class QuizComponent implements OnInit {
   nextQuestion(){
   this.currentQuestion++ ;
   }
-  previousQuestion(){
-  this.currentQuestion-- ;
-  }
+
   answer(currentQ:number,option:any){
     console.log(currentQ);
     console.log(option);
     console.log(this.questionList[currentQ-1].correctAnswer);
+
     if(currentQ === this.questionList.length){
-      this.isQuizCompleted = true;
+      this.isQuizCompleted = true;//to display the quiz or the score
     }
 
     if(option === this.questionList[currentQ-1].correctAnswer){
       this.points+=10;
-      
       this.correctAnswer++ ;
       setTimeout(()=>{
         this.currentQuestion++ ;
-        this.getProgressPercentage();
       },1000);
       
     }else{
       setTimeout(()=>{
        this.currentQuestion++ ;
        this.incorrectAnswer++ ;
-       this.getProgressPercentage();
       },1000);
       this.points += 0 ;
       }
@@ -69,10 +65,10 @@ export class QuizComponent implements OnInit {
     this.progress = '0';
     this.isQuizCompleted = false;
   }
-  getProgressPercentage(){
-    this.progress = ((this.currentQuestion/this.questionList.length)*100).toString();
-    return this.progress;
-  }
+  // getProgressPercentage(){
+  //   this.progress = ((this.currentQuestion/this.questionList.length)*100).toString();
+  //   return this.progress;
+  // }
 
   /*
   --- fix the next button =>  Final Answer 

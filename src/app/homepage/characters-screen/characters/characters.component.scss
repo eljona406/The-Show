@@ -1,6 +1,6 @@
 .container{
-  max-width: 1000px;
-  margin: auto;
+    max-width: 1000px;
+    margin: auto;
     display: list-item;
     @media (min-width: 768px)and (max-width:1024px){
     max-width: 720px;
@@ -8,9 +8,7 @@
     @media (max-width: 320px){
     display: grid;
     }
-    ::marker {
-     display: none;
-    }
+    list-style-type: none;
 }
 
 .card {

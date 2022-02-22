@@ -78,6 +78,7 @@ export class QuizComponent implements OnInit {
   --- fix the next button =>  Final Answer 
   --- improve results display
   --- fix the image in header
+  --- no inline style
 
   */
   }

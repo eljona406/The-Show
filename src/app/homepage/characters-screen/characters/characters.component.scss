@@ -1,12 +1,33 @@
-.example-card {
-    max-width: 200px;
-   // height: 200px;
-    margin: auto;
+.container{
+  max-width: 1000px;
+  margin: auto;
+    display: list-item;
+    @media (min-width: 768px)and (max-width:1024px){
+    max-width: 720px;
+    }
+    @media (max-width: 320px){
+    display: grid;
+    }
+    ::marker {
+     display: none;
+    }
+}
+
+.card {
+    margin: 10px;
     padding: 20px;
     margin-top: 10px;
-    background-color: aqua;
+    background-color: rgb(243, 243, 243);
+    min-height: 265px;
+    float: left;
+    width: 150px;
+    border-bottom: none;
+    .image{
+    max-height: 200px;
+    }
   }
-  
-  .example-header-image {
-    background-size: cover;
-  }
+  .card:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    } 
+
+

@@ -1,12 +1,10 @@
 <div class="container">
-  <mat-card class="card">
-     <mat-card-title class="quiz-header">
-        <h4 style="font-family: cursive;">The Show Quiz</h4>
-        <span style="font-style: italic;">Welcome User </span>
+  <mat-card class="card mt-4">
+   
+  <ng-container *ngIf="!isQuizCompleted">
+   <mat-card-title class="quiz-header">
+        <h1 style="font-style: italic;">Welcome to Futurama Quiz</h1>
      </mat-card-title>
-
-     <ng-container *ngIf="!isQuizCompleted">
-
         <mat-card-subtitle class="d-flex justify-content-around py-2">
            <div class="score">
               <h4>{{points}} Points</h4>
@@ -33,7 +31,7 @@
            </mat-list>
         </mat-card-content>
 
-        <mat-card-actions class="d-flex justify-content-between">
+        <mat-card-actions class="d-flex justify-content-center">
            <!-- <button [disabled]="currentQuestion === 0" class="btn" (click)="previousQuestion()"><i class="fa text-primary fa-chevron-left fa-3x"aria-hidden="true"></i></button> -->
            <!-- <button class="btn" (click)="resetQuiz()"><i class="fa fa-refresh text-primary fa-3x" aria-hidden="true"></i></button> -->
            <button mat-raised-button color="primary" [disabled]="currentQuestion === questionList.length-1" class="btn" (click)="nextQuestion()">Final Answer</button>
@@ -42,14 +40,27 @@
 
      <ng-container *ngIf="isQuizCompleted">
         <div class="row d-flex justify-content-between">
-           <mat-card-content class="result text-center col md-6 col-sm-12">
-              <h3>Congratulations <br>You have completed the quiz. <br>Below is your result:</h3>
-              <p>Total Question Attemppted : {{questionList.length}}</p>
-              <p>Total Correct Answer : {{correctAnswer}}</p>
-              <p>Total Wrong Answer : {{incorrectAnswer}}</p>
-              <p>Your Score : {{points}} Points</p>
+         <img class="img-fail"*ngIf="!(correctAnswer >= 15)" src="/assets/images/fail-quiz.png" alt="fail">        
+         <img class="img-success" *ngIf="correctAnswer > 15"src="/assets/images/success-quiz.jpg" alt="success">
+           <mat-card-content class="result">
+
+              <h3><br>You have completed the quiz. <br>Below is your result:</h3>
+              
+            <div class="row">
+               <div class="col-lg-6 col-md-6 col-sm-12">
+                  <p>Total Questions : {{questionList.length}}</p>
+                  <p>Total Correct Answers : {{correctAnswer}}</p>
+               </div>
+               <div class="col-lg-6 col-md-6 col-sm-12">
+                  <p>Total Wrong Answers : {{incorrectAnswer}}</p>
+                  <p>Your Score : {{points}} Points</p>
+               </div>
+            </div>
+              
            </mat-card-content>
-           <button mat-raised-button color="primary" class="btn" (click)="resetQuiz()"><mat-icon class="fa fa-refresh text-primary fa-3x" aria-hidden="true"></mat-icon></button>
+         <div class="row restart"> 
+           <button mat-raised-button color="primary" class="btn d-flex" (click)="resetQuiz()">Restart Quiz</button>
+         </div>
         </div>
      </ng-container>
   </mat-card>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Creators } from 'src/app/model/creators.model';
 import { Info } from 'src/app/model/info.model';
 import { ShowInfoService } from 'src/app/services/show-info.service';
 
@@ -11,7 +12,7 @@ export class HomepageComponent implements OnInit {
 
   info!: Info[];
   infoData!: Info;
-
+  creators!: Creators[];
   constructor(private showInfoService : ShowInfoService) { }
 
   ngOnInit(): void {
@@ -25,7 +26,7 @@ getInfo(){
     this.infoData= this.info[0]
     console.log(this.info)
     console.log(this.infoData)
-
+    this.creators = this.infoData.creators
     //fix console error 
     // add style and structure
   })

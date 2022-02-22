@@ -7,10 +7,10 @@ import { Quiz } from '../model/quiz.model';
   providedIn: 'root'
 })
 export class QuizService {
-
+ URL='https://api.sampleapis.com/futurama'
   constructor( private http : HttpClient) {}
 
      public getQuiz():Observable<Quiz[]> {
-       return this.http.get<Quiz[]>('https://api.sampleapis.com/futurama/questions')
+       return this.http.get<Quiz[]>( this.URL + '/questions')
      }
 }

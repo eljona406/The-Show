@@ -7,11 +7,12 @@ import { Info } from '../model/info.model';
   providedIn: 'root'
 })
 export class ShowInfoService {
+  URL='https://api.sampleapis.com/futurama';
 
   constructor( private http : HttpClient) {}
 
      public showInfo(): Observable<Info[]> {
-       return this.http.get<Info[]>('https://api.sampleapis.com/futurama/info')
+       return this.http.get<Info[]>(this.URL + '/info');
      }
 
 }

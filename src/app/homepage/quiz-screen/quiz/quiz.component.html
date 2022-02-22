@@ -1,68 +1,59 @@
 <div class="container">
-  <mat-card class="card mt-4">
-   
-  <ng-container *ngIf="!isQuizCompleted">
-   <mat-card-title class="quiz-header">
-        <h1 class="welcome">Welcome to Futurama Quiz</h1>
-     </mat-card-title>
-        <mat-card-subtitle class="d-flex justify-content-around py-2">
-           <div class="score">
-              <span>{{points}} Points</span>
-           </div>
-           <div class="question-remain">
-              <span>Question {{currentQuestion+1}} of {{questionList.length}}</span>
-           </div>
-        </mat-card-subtitle>
-
-        <!-- <div class="progress mb-3">
-           <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [ngStyle]="{'width': progress +'%'}"  aria-valuemin="0" aria-valuemax="100"></div>
-           </div> -->
-        <mat-card-subtitle class="question">
-           <h3>{{questionList[currentQuestion]?.question}}</h3>
-           <mat-divider></mat-divider>
-        </mat-card-subtitle>
-
-        <mat-card-content>
-           <mat-list *ngFor="let possibleAnswers of questionList[currentQuestion]?.possibleAnswers">
-              <mat-list-item  (click)="answer(currentQuestion+1,possibleAnswers)" appChangeBackground [isCorrect]="possibleAnswers === questionList[currentQuestion].correctAnswer">
-              {{possibleAnswers}}
-              <mat-divider></mat-divider>
-              </mat-list-item>
-           </mat-list>
-        </mat-card-content>
-
-        <mat-card-actions class="d-flex justify-content-end">
-           <!-- <button [disabled]="currentQuestion === 0" class="btn" (click)="previousQuestion()"><i class="fa text-primary fa-chevron-left fa-3x"aria-hidden="true"></i></button> -->
-           <!-- <button class="btn" (click)="resetQuiz()"><i class="fa fa-refresh text-primary fa-3x" aria-hidden="true"></i></button> -->
-           <button  class="btn" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-3x"aria-hidden="true"></i></button>
-        </mat-card-actions>
-     </ng-container>
-
-     <ng-container *ngIf="isQuizCompleted">
-        <div class="row d-flex justify-content-between">
-         <img class="img-fail"*ngIf="!(correctAnswer >= 15)" src="/assets/images/fail-quiz.png" alt="fail">        
-         <img class="img-success" *ngIf="correctAnswer > 15"src="/assets/images/success-quiz.jpg" alt="success">
-           <mat-card-content class="result">
-
-              <h3><br>You have completed the quiz. <br>Below is your result:</h3>
-              
-            <div class="row">
-               <div class="col-lg-6 col-md-6 col-sm-12">
-                  <p>Total Questions : {{questionList.length}}</p>
-                  <p>Total Correct Answers : {{correctAnswer}}</p>
-               </div>
-               <div class="col-lg-6 col-md-6 col-sm-12">
-                  <p>Total Wrong Answers : {{incorrectAnswer}}</p>
-                  <p>Your Score : {{points}} Points</p>
-               </div>
+   <mat-card class="card mt-4">
+      <ng-container *ngIf="!isQuizCompleted">
+         <mat-card-title class="quiz-header">
+            <h1 class="welcome">Welcome to Futurama Quiz</h1>
+         </mat-card-title>
+         <mat-card-subtitle class="d-flex justify-content-around py-2">
+            <div class="score">
+               <span>{{points}} Points</span>
             </div>
-              
-           </mat-card-content>
-         <div class="row restart"> 
-           <button mat-raised-button color="primary" class="btn d-flex" (click)="resetQuiz()">Restart Quiz</button>
+            <div class="question-remain">
+               <span>Question {{currentQuestion+1}} of {{questionList.length}}</span>
+            </div>
+         </mat-card-subtitle>
+         <!-- <div class="progress mb-3">
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [ngStyle]="{'width': progress +'%'}"  aria-valuemin="0" aria-valuemax="100"></div>
+            </div> -->
+         <mat-card-subtitle class="question">
+            <h3>{{questionList[currentQuestion]?.question}}</h3>
+            <mat-divider></mat-divider>
+         </mat-card-subtitle>
+         <mat-card-content>
+            <mat-list *ngFor="let possibleAnswers of questionList[currentQuestion]?.possibleAnswers">
+               <mat-list-item  (click)="answer(currentQuestion+1,possibleAnswers)" appChangeBackground [isCorrect]="possibleAnswers === questionList[currentQuestion].correctAnswer">
+               {{possibleAnswers}}
+               <mat-divider></mat-divider>
+               </mat-list-item>
+            </mat-list>
+         </mat-card-content>
+         <mat-card-actions class="d-flex justify-content-end">
+            <button  class="btn" [disabled]="currentQuestion+1 === questionList.length" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-3x"aria-hidden="true"></i></button>
+         </mat-card-actions>
+      </ng-container>
+      <ng-container *ngIf="isQuizCompleted">
+         <div class="row d-flex justify-content-between">
+            <img class="img-fail"*ngIf="(correctAnswer < 15)" src="/assets/images/fail-quiz.png" alt="fail">        
+            <img class="img-success" *ngIf="correctAnswer >= 15"src="/assets/images/success-quiz.jpg" alt="success">
+            <mat-card-content class="result">
+               <br>
+               <h3><strong> You have completed the quiz. Below is your result:</strong></h3>
+               <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-12">
+                     <p>Total Questions : {{questionList.length}}</p>
+                     <p>Total Correct Answers : {{correctAnswer}}</p>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12">
+                     <p>Total Wrong Answers : {{incorrectAnswer}}</p>
+                     <p>Your Score : {{points}} Points</p>
+                  </div>
+               </div>
+            </mat-card-content>
+            <div class="row restart"> 
+               <button mat-raised-button color="primary" class="btn d-flex" (click)="resetQuiz()">Restart Quiz</button>
+            </div>
          </div>
-        </div>
-     </ng-container>
-  </mat-card>
+      </ng-container>
+   </mat-card>
 </div>
 <router-outlet></router-outlet>

@@ -14,6 +14,7 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MaterialModule } from './homepage/material.module';
 import { ChangeBackgroundDirective } from './change-background.directive';
 import { CharacterDetailComponent } from './homepage/characters-screen/character-detail/character-detail/character-detail.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CharacterDetailComponent } from './homepage/characters-screen/character
     CharactersComponent,
     CharacterDetailComponent,
     NavigatioComponent,
-    ChangeBackgroundDirective
+    ChangeBackgroundDirective,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -33,8 +35,9 @@ import { CharacterDetailComponent } from './homepage/characters-screen/character
     FormsModule,
     MatSidenavModule,
     MaterialModule,
-    HttpClientModule,
+    HttpClientModule
   ],
+  exports:[NavigatioComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

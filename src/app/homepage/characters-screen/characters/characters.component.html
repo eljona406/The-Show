@@ -1,9 +1,9 @@
 <div class="container">
- <mat-card class="card" *ngFor="let character of characters" (click)="seeDetails(character.id)">
-    <mat-card-content>
-      <img mat-card-image class="image" src="{{character.images.main}}" alt="character">
-    </mat-card-content>
-    <mat-card-footer>{{character?.name?.first}} {{character?.name?.middle}} {{character?.name?.last}}</mat-card-footer>
+  <mat-card class="card" *ngFor="let character of characters" (click)="seeDetails(character.id)">
+  <mat-card-content>
+     <img mat-card-image class="image" src="{{character.images.main}}" alt="character">
+  </mat-card-content>
+  <mat-card-footer>{{character?.name?.first}} {{character?.name?.middle}} {{character?.name?.last}}</mat-card-footer>
   </mat-card>
 </div>
 <router-outlet></router-outlet>

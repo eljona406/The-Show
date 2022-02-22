@@ -23,6 +23,7 @@ export class QuizComponent implements OnInit {
   ngOnInit(){
     this.getQuestions();
   }
+  //to get the list of questions
   getQuestions(){
     this.quizService.getQuiz().subscribe(data =>{
       console.log(data);
@@ -30,10 +31,12 @@ export class QuizComponent implements OnInit {
       console.log(this.questionList);
     })
   }
+  //going to next question after clicking the arrow
   nextQuestion(){
   this.currentQuestion++ ;
   }
-
+//getting the number of the current question and the selected option , 
+//and comparing to the correct question  dhe validating it with green or red color display
   answer(currentQ:number,option:any){
     console.log(currentQ);
     console.log(option);
@@ -42,22 +45,23 @@ export class QuizComponent implements OnInit {
     if(currentQ === this.questionList.length){
       this.isQuizCompleted = true;//to display the quiz or the score
     }
-
+//if the selected option is the correct one we add 10 points to total and go to next question,otherwise just go to next question
     if(option === this.questionList[currentQ-1].correctAnswer){
       this.points+=10;
       this.correctAnswer++ ;
       setTimeout(()=>{
         this.currentQuestion++ ;
-      },1000);
+      },500);
       
     }else{
       setTimeout(()=>{
        this.currentQuestion++ ;
        this.incorrectAnswer++ ;
-      },1000);
+      },500);
       this.points += 0 ;
       }
   }
+  //restart the quiz
   resetQuiz(){
     this.getQuestions();
     this.points = 0;
@@ -65,16 +69,4 @@ export class QuizComponent implements OnInit {
     this.progress = '0';
     this.isQuizCompleted = false;
   }
-  // getProgressPercentage(){
-  //   this.progress = ((this.currentQuestion/this.questionList.length)*100).toString();
-  //   return this.progress;
-  // }
-
-  /*
-  --- fix the next button =>  Final Answer 
-  --- improve results display
-  --- fix the image in header
-  --- no inline style
-
-  */
   }

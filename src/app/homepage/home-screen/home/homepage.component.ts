@@ -27,8 +27,6 @@ getInfo(){
     console.log(this.info)
     console.log(this.infoData)
     this.creators = this.infoData.creators
-    //fix console error 
-    // add style and structure
   })
 }
 }

@@ -7,14 +7,15 @@ import { Characters } from '../model/characters.model';
   providedIn: 'root'
 })
 export class CharactersService {
+   URL='https://api.sampleapis.com/futurama';
 
   constructor( private http : HttpClient) {}
 
      public showCharacters(): Observable<Characters[]> {
-       return this.http.get<Characters[]>('https://api.sampleapis.com/futurama/characters')
+       return this.http.get<Characters[]>(this.URL +'/characters')
      }
      
      public getCharactersById(id :number ): Observable<Characters> {
-      return this.http.get<Characters>('https://api.sampleapis.com/futurama/characters'+`/${id}`)
+      return this.http.get<Characters>(this.URL +'/characters'+`/${id}`)
     }
 }

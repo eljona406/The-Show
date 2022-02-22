@@ -1,23 +1,23 @@
 <mat-toolbar color="transparent">
-    <span class="fill-remaining-space">
-      <button mat-icon-button [matMenuTriggerFor]="menu">
+  <span class="fill-remaining-space">
+     <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>menu</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu" [overlapTrigger]="false">
-        <button mat-menu-item routerLink="/homepage">
-          <mat-icon>home</mat-icon>
-          <span>Home</span>
-        </button>
-        <button mat-menu-item routerLink="/characters">
-          <mat-icon>people_outline</mat-icon>
-          <span>Characters</span>
-        </button>
-        <button mat-menu-item routerLink="/quiz">
-          <mat-icon>quiz</mat-icon>
-          <span>Quiz</span>
-        </button>
-      </mat-menu>
-    </span>
-    <span class="fill-remaining-space" routerLink="/homepage">FUTURAMA SHOW</span>
-  </mat-toolbar>
+     </button>
+     <mat-menu #menu="matMenu" [overlapTrigger]="false">
+     <button mat-menu-item routerLink="/homepage">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+     </button>
+     <button mat-menu-item routerLink="/characters">
+        <mat-icon>people_outline</mat-icon>
+        <span>Characters</span>
+     </button>
+     <button mat-menu-item routerLink="/quiz">
+        <mat-icon>quiz</mat-icon>
+        <span>Quiz</span>
+     </button>
+     </mat-menu>
+  </span>
+  <span class="fill-remaining-space title" routerLink="/homepage">FUTURAMA SHOW</span>
+</mat-toolbar>
 <router-outlet></router-outlet>

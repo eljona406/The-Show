@@ -15,7 +15,7 @@ export class CharactersComponent implements OnInit {
   ngOnInit(): void {
     this.getCharacters()
   }
-
+// get the character list
   getCharacters(){
     this.charactersService.showCharacters().subscribe(data =>{
       console.log(data)
@@ -25,10 +25,8 @@ export class CharactersComponent implements OnInit {
       console.log(this.characters[0].images.main)
     })
   }
+  // go to the details for the selected character
   seeDetails(id: number){
     this.router.navigate(['characters',id]);
   }
-  /*
-  improve display   at least 3 in a row  and work with css
-  */
 }

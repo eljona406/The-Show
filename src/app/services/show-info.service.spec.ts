@@ -1,16 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { ShowInfoService } from './show-info.service';
 
 describe('ShowInfoService', () => {
-  let service: ShowInfoService;
+  let showInfoService : ShowInfoService ;
+  let mockHttp: HttpClient;
+beforeEach(() => {
+  mockHttp = jasmine.createSpyObj('mockHttp',['get'])
+  let showInfoService = new ShowInfoService(mockHttp);
+ });
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ShowInfoService);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
 });

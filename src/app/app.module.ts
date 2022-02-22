@@ -13,6 +13,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MaterialModule } from './homepage/material.module';
 import { ChangeBackgroundDirective } from './change-background.directive';
+import { CharacterDetailComponent } from './homepage/characters-screen/character-detail/character-detail/character-detail.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ChangeBackgroundDirective } from './change-background.directive';
     HomepageComponent,
     QuizComponent,
     CharactersComponent,
+    CharacterDetailComponent,
     NavigatioComponent,
     ChangeBackgroundDirective
   ],

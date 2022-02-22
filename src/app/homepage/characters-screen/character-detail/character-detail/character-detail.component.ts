@@ -31,4 +31,7 @@ getCharactersById(id:number){
     //json api not responding...........
   });
 }
+goBackToCharacterList(){
+  this.router.navigate(['/characters']);
+}
 }

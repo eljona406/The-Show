@@ -1,0 +1,19 @@
+.card{
+    box-shadow: none;
+    .head{
+        width: inherit;
+    }
+    .header{ 
+        width: 100%;
+        margin-bottom: 40px;
+        display: flex;
+    .image{
+         padding: 10px;
+         width: 150px;
+    }
+    .mat-list-base .mat-list-item{
+        min-height: 50px;
+        height: unset;
+    }
+}
+}

@@ -1,0 +1,33 @@
+<div class="container">
+  <mat-card  class="card">
+     <mat-card-header class="header">
+        <div class="row head">
+           <div class="col-lg-2 col-sm-6 char-img">
+              <div class="header-image">
+                 <img mat-card-image class="image" height="250" src="{{characterDetails?.images?.main}}" alt="character-photo" >
+              </div>
+           </div>
+           <div class="col-lg-10 col-sm-6 details">
+              <mat-card-title class="py-3">{{characterDetails?.name?.first}} {{characterDetails?.name?.middle}} {{characterDetails?.name?.last}}</mat-card-title>
+              <mat-card-subtitle class="">
+                 <h3> Gender : {{characterDetails?.gender}} </h3>
+                 <h3> Species : {{characterDetails?.species}} </h3>
+                 <h3> Home Planet : {{characterDetails?.homePlanet}} </h3>
+                 <h3> Occupation : {{characterDetails?.occupation}}</h3>
+              </mat-card-subtitle>
+           </div>
+        </div>
+     </mat-card-header>
+     <mat-divider></mat-divider>
+     <mat-card-content>
+        <h2>Best Sayings of {{characterDetails?.name?.first}} : </h2>
+        <div class="sayings" *ngFor="let saying of characterDetails?.sayings">
+           <h3>"{{saying}}"</h3>
+        </div>
+     </mat-card-content>
+     <mat-card-actions>
+        <button color="primary" mat-raised-button (click)="goBackToCharacterList()">Back To List</button>
+     </mat-card-actions>
+  </mat-card>
+</div>
+<router-outlet></router-outlet>
